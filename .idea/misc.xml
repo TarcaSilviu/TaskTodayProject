@@ -5,10 +5,12 @@
       <map>
         <entry key="..\:/Users/tarca/AndroidStudioProjects/TaskTodayAppProject/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/tarca/AndroidStudioProjects/TaskTodayProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.174" />
+        <entry key="..\:/Users/tarca/AndroidStudioProjects/TaskTodayProject/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1" />
+        <entry key="..\:/Users/tarca/AndroidStudioProjects/TaskTodayProject/app/src/main/res/drawable/ic_baseline_dehaze_24.xml" value="0.1145" />
         <entry key="..\:/Users/tarca/AndroidStudioProjects/TaskTodayProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.174" />
         <entry key="..\:/Users/tarca/AndroidStudioProjects/TaskTodayProject/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/tarca/AndroidStudioProjects/TaskTodayProject/app/src/main/res/layout/activity_user_hub.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/tarca/AndroidStudioProjects/TaskTodayProject/app/src/main/res/layout/toolbar.xml" value="0.67" />
+        <entry key="..\:/Users/tarca/AndroidStudioProjects/TaskTodayProject/app/src/main/res/layout/toolbar.xml" value="0.5" />
       </map>
     </option>
   </component>

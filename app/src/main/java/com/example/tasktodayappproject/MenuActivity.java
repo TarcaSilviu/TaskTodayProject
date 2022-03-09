@@ -15,6 +15,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_hub);
         confirgureBackButton();
+        //configureButtons();
         backImageButton=(ImageButton) findViewById(R.id.MenuIcon);
         backImageButton.setVisibility(View.GONE);
     }
@@ -28,4 +29,14 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
     }
+    /*
+    private void configureButtons(){
+        Button btn1=(Button) findViewById(R.id.teamsOptionBtn);
+        Button btn2=(Button) findViewById(R.id.profileOptionBtn);
+        Button btn3=(Button) findViewById(R.id.personalTasksBtn);
+
+        btn1.setVisibility(View.VISIBLE);
+        btn2.setVisibility(View.VISIBLE);
+        btn3.setVisibility(View.VISIBLE);
+    }*/
 }

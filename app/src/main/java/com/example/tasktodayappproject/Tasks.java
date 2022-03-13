@@ -5,27 +5,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-public class UserHub extends AppCompatActivity {
+public class Tasks extends AppCompatActivity {
 
         ImageButton backImageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_hub);
+        setContentView(R.layout.activity_tasks);
         configureMenuButton();
-        backImageButton=(ImageButton) findViewById(R.id.BackIcon);
-        backImageButton.setVisibility(View.GONE);
+        ImageButton backButton=(ImageButton) findViewById(R.id.BackIcon);
+        backButton.setVisibility(View.GONE);
     }
+
     private void configureMenuButton(){
         ImageButton menuButton=(ImageButton) findViewById(R.id.MenuIcon);
 
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserHub.this,MenuActivity.class));
+                startActivity(new Intent(Tasks.this,MenuActivity.class));
             }
         });
     }

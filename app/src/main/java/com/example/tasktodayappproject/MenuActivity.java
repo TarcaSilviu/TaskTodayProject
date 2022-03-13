@@ -10,33 +10,30 @@ import android.widget.ImageButton;
 
 public class MenuActivity extends AppCompatActivity {
     ImageButton backImageButton;
+    ImageButton menuImageIcon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_hub);
-        confirgureBackButton();
-        //configureButtons();
-        backImageButton=(ImageButton) findViewById(R.id.MenuIcon);
-        backImageButton.setVisibility(View.GONE);
-    }
-    private void confirgureBackButton(){
-        ImageButton backImageButton=(ImageButton) findViewById(R.id.BackIcon);
+        setContentView(R.layout.activity_menu);
+        configureTasksButton();
 
-        backImageButton.setOnClickListener(new View.OnClickListener() {
+        backImageButton=(ImageButton) findViewById(R.id.BackIcon);
+        backImageButton.setVisibility(View.GONE);
+        menuImageIcon=(ImageButton) findViewById(R.id.MenuIcon);
+        menuImageIcon.setVisibility(View.GONE);
+
+    }
+    private void configureTasksButton(){
+        Button tasksBtn=(Button) findViewById(R.id.personalTasksBtn);
+
+        tasksBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this,UserHub.class));
+                startActivity(new Intent(MenuActivity.this, Tasks.class));
             }
         });
     }
-    /*
-    private void configureButtons(){
-        Button btn1=(Button) findViewById(R.id.teamsOptionBtn);
-        Button btn2=(Button) findViewById(R.id.profileOptionBtn);
-        Button btn3=(Button) findViewById(R.id.personalTasksBtn);
 
-        btn1.setVisibility(View.VISIBLE);
-        btn2.setVisibility(View.VISIBLE);
-        btn3.setVisibility(View.VISIBLE);
-    }*/
+
+
 }

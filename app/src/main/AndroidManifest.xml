@@ -13,7 +13,7 @@
             android:name=".MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".UserHub"
+            android:name=".Tasks"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

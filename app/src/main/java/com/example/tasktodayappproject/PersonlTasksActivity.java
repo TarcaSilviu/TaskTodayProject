@@ -10,14 +10,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 import Classes.Task;
 
-public class Tasks extends AppCompatActivity {
+public class PersonlTasksActivity extends AppCompatActivity {
     private ArrayList<Task> tasksList;
     private RecyclerView recyclerViewTasks;
     ImageButton backImageButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -27,7 +30,11 @@ public class Tasks extends AppCompatActivity {
         recyclerViewTasks=findViewById(R.id.recyclerViewTasks);
         tasksList=new ArrayList<>();
         tasksList.add((new Task("man")));
+        tasksList.add((new Task("man")));
+        tasksList.add((new Task("man")));
+        tasksList.add((new Task("man")));
         setAdapter();
+        tasksList.add((new Task("man")));
 
         configureMenuButton();
         ImageButton backButton=(ImageButton) findViewById(R.id.BackIcon);
@@ -40,7 +47,7 @@ public class Tasks extends AppCompatActivity {
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Tasks.this,MenuActivity.class));
+                startActivity(new Intent(PersonlTasksActivity.this,MenuActivity.class));
             }
         });
     }
@@ -51,6 +58,17 @@ public class Tasks extends AppCompatActivity {
         recyclerViewTasks.setLayoutManager((layoutManager));
         recyclerViewTasks.setItemAnimator((new DefaultItemAnimator()));
         recyclerViewTasks.setAdapter(adapter);
+    }
+    private void configureFloatAddButton(){
+        FloatingActionButton addButton=(FloatingActionButton) findViewById(R.id.addPersonalTask);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(PersonlTasksActivity.this,AddPersonalTaskActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

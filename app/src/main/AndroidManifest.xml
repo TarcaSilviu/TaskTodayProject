@@ -10,10 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskTodayAppProject">
         <activity
+            android:name=".AddPersonalTaskActivity"
+            android:parentActivityName=".PersonlTasksActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".Tasks"
+            android:name=".PersonlTasksActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

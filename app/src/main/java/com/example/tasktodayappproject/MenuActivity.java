@@ -29,7 +29,7 @@ public class MenuActivity extends AppCompatActivity {
         tasksBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, Tasks.class));
+                startActivity(new Intent(MenuActivity.this, PersonlTasksActivity.class));
             }
         });
     }

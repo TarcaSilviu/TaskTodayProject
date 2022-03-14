@@ -33,7 +33,7 @@ public class PersonalRecyclerAdapter extends RecyclerView.Adapter<PersonalRecycl
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.recylcer_personal_tasks_view,parent,false);
+        View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_personal_tasks_view,parent,false);
 
         return new MyViewHolder(itemView);
     }

@@ -34,8 +34,8 @@ public class PersonlTasksActivity extends AppCompatActivity {
         tasksList.add((new Task("man")));
         tasksList.add((new Task("man")));
         setAdapter();
-        tasksList.add((new Task("man")));
 
+        configureFloatAddButton();
         configureMenuButton();
         ImageButton backButton=(ImageButton) findViewById(R.id.BackIcon);
         backButton.setVisibility(View.GONE);

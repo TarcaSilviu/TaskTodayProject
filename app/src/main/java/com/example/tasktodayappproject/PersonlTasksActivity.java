@@ -19,7 +19,7 @@ import Classes.Task;
 public class PersonlTasksActivity extends AppCompatActivity {
     private ArrayList<Task> tasksList;
     private RecyclerView recyclerViewTasks;
-    ImageButton backImageButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,9 @@ public class PersonlTasksActivity extends AppCompatActivity {
         setAdapter();
 
         configureFloatAddButton();
-        configureMenuButton();
-        ImageButton backButton=(ImageButton) findViewById(R.id.BackIcon);
-        backButton.setVisibility(View.GONE);
+        configureBackButton();
+        ImageButton menuButton=(ImageButton) findViewById(R.id.MenuIcon);
+        menuButton.setVisibility(View.GONE);
     }
 
     private void configureMenuButton(){
@@ -48,10 +48,21 @@ public class PersonlTasksActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PersonlTasksActivity.this,MenuActivity.class));
+
             }
         });
     }
+    private void configureBackButton(){
+        ImageButton backButton=(ImageButton) findViewById(R.id.BackIcon);
 
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PersonlTasksActivity.this,MenuActivity.class));
+                PersonlTasksActivity.this.finish();
+            }
+        });
+    }
     private void setAdapter(){
         PersonalRecyclerAdapter adapter=new PersonalRecyclerAdapter(tasksList);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager((getApplicationContext()));

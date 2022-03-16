@@ -1,8 +1,10 @@
 package Classes;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -16,7 +18,7 @@ public class LocalDatabase  extends SQLiteOpenHelper {
     private static final String COLUMN_ID="_id";
     private static final String COLUMN_TITLE="task_title";
     private static final String COLUMN_DESCRIPTION="task_description";
-    //public static final String COLUMN_DESCRIPTION="task_description";
+    //public static final String COLUMN_DATE="task_date";
 
 
     public LocalDatabase(@Nullable Context context) {
@@ -37,5 +39,17 @@ public class LocalDatabase  extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
     sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
     onCreate(sqLiteDatabase);
+    }
+
+    void addPersonalTask(String title,String description){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        cv.put(COLUMN_TITLE,title);
+        cv.put(COLUMN_DESCRIPTION,description);
+        //cv.put(COLUMN_DATE,date);
+        long result=db.insert(TABLE_NAME,null,cv);
+        if(result==-1){
+            Toast.makeText(context,"",Toast.LENGTH_SHORT).show();
+        }
     }
 }

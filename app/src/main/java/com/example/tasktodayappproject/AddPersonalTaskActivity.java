@@ -5,9 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class AddPersonalTaskActivity extends AppCompatActivity {
+
+    EditText title;
+    EditText description;
+    EditText date;
+    EditText time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -29,7 +29,7 @@ public class LocalDatabase  extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query=
-                " CREATE TABLE "+TABLE_NAME+" ("+COLUMN_ID+"INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                " CREATE TABLE "+TABLE_NAME+" ("+COLUMN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
                        COLUMN_TITLE+" TEXT, "+
                         COLUMN_DESCRIPTION +" TEXT); ";
         sqLiteDatabase.execSQL(query);
@@ -41,7 +41,7 @@ public class LocalDatabase  extends SQLiteOpenHelper {
     onCreate(sqLiteDatabase);
     }
 
-    void addPersonalTask(String title,String description){
+    public void addPersonalTask(String title,String description){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
         cv.put(COLUMN_TITLE,title);
@@ -52,7 +52,7 @@ public class LocalDatabase  extends SQLiteOpenHelper {
             Toast.makeText(context,"Failed",Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(context,"Added uccesfull",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Added succesfull",Toast.LENGTH_SHORT).show();
         }
     }
 }

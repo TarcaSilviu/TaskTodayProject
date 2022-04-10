@@ -41,7 +41,7 @@ public class LocalDatabase  extends SQLiteOpenHelper {
     sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
     onCreate(sqLiteDatabase);
     }
-
+//
     public void addPersonalTask(String title,String description){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();

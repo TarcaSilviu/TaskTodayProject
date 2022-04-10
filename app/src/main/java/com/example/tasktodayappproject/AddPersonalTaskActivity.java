@@ -46,7 +46,7 @@ public class AddPersonalTaskActivity extends AppCompatActivity {
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AddPersonalTaskActivity.this,PersonlTasksActivity.class));
+                startActivity(new Intent(AddPersonalTaskActivity.this, PersonalTasksActivity.class));
                 AddPersonalTaskActivity.this.finish();
             }
         });
@@ -57,7 +57,7 @@ public class AddPersonalTaskActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AddPersonalTaskActivity.this,MenuActivity.class));
+                startActivity(new Intent(AddPersonalTaskActivity.this,PersonalTasksActivity.class));
                 AddPersonalTaskActivity.this.finish();
             }
         });

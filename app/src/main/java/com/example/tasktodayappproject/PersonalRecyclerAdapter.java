@@ -1,5 +1,6 @@
 package com.example.tasktodayappproject;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,19 +14,26 @@ import java.util.ArrayList;
 import Classes.Task;
 
 public class PersonalRecyclerAdapter extends RecyclerView.Adapter<PersonalRecyclerAdapter.MyViewHolder> {
+
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        private TextView title;
+        private TextView task_id_txt,task_title_txt,task_description_txt;
 
         public MyViewHolder (final View view){
             super(view);
-            title=view.findViewById(R.id.titleTextView);
-
+            task_id_txt=view.findViewById(R.id.idTextView);
+            task_title_txt=view.findViewById(R.id.titleTextView);
+           // task_description_txt=view.findViewById(R.id.);
         }
     }
-    private ArrayList<Task> taskList;
 
-    public PersonalRecyclerAdapter(ArrayList<Task> taskList){
-        this.taskList=taskList;
+    private Context context;
+    private ArrayList task_id,task_title,task_description;
+
+    public PersonalRecyclerAdapter(Context context,ArrayList task_id, ArrayList task_title,ArrayList task_description){
+        this.context=context;
+        this.task_description=task_description;
+        this.task_id=task_id;
+        this.task_title=task_title;
     }
 
 
@@ -40,13 +48,13 @@ public class PersonalRecyclerAdapter extends RecyclerView.Adapter<PersonalRecycl
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-    String title=taskList.get(position).getTitle();
-    holder.title.setText(title);
+    holder.task_id_txt.setText(String.valueOf(task_id.get(position)));
+    holder.task_title_txt.setText(String.valueOf(task_title.get(position)));
     }
 
 
     @Override
     public int getItemCount() {
-        return taskList.size();
+        return task_id.size();
     }
 }

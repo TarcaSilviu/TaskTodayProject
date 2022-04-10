@@ -11,13 +11,13 @@
         android:theme="@style/Theme.TaskTodayAppProject">
         <activity
             android:name=".AddPersonalTaskActivity"
-            android:parentActivityName=".PersonlTasksActivity"
+            android:parentActivityName=".PersonalTasksActivity"
             android:exported="false" />
         <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".PersonlTasksActivity"
+            android:name=".PersonalTasksActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

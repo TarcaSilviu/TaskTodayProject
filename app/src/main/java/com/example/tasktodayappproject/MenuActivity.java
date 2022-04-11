@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 public class MenuActivity extends AppCompatActivity {
     ImageButton backImageButton;
     ImageButton menuImageIcon;
+    ImageButton deleteImageIcon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,7 @@ public class MenuActivity extends AppCompatActivity {
         backImageButton.setVisibility(View.GONE);
         menuImageIcon=(ImageButton) findViewById(R.id.MenuIcon);
         menuImageIcon.setVisibility(View.GONE);
+
 
     }
     private void configureTasksButton(){

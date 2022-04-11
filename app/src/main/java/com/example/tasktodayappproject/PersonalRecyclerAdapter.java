@@ -1,6 +1,7 @@
 package com.example.tasktodayappproject;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -36,8 +37,10 @@ public class PersonalRecyclerAdapter extends RecyclerView.Adapter<PersonalRecycl
 
     private Context context;
     private ArrayList task_id,task_title,task_description;
+    Activity activity;
     protected int position;
-    public PersonalRecyclerAdapter(Context context,ArrayList task_id, ArrayList task_title,ArrayList task_description){
+    public PersonalRecyclerAdapter(Activity activity,Context context,ArrayList task_id, ArrayList task_title,ArrayList task_description){
+        this.activity=activity;
         this.context=context;
         this.task_description=task_description;
         this.task_id=task_id;
@@ -69,8 +72,7 @@ public class PersonalRecyclerAdapter extends RecyclerView.Adapter<PersonalRecycl
                 intent.putExtra("id",String.valueOf(task_id.get(position)));
                 intent.putExtra("title",String.valueOf(task_title.get(position)));
                 intent.putExtra("description",String.valueOf(task_description.get(position)));
-
-                context.startActivity(intent);
+                activity.startActivityForResult(intent,1);
             }
         });
     }

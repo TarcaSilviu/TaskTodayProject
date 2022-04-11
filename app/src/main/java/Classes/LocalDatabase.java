@@ -68,4 +68,36 @@ public class LocalDatabase  extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
+    public void updateData(String row_id,String title, String description){
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TITLE,title);
+        cv.put(COLUMN_DESCRIPTION,description);
+        //cv.put(COLUMN_TITLE,title);
+
+        long result=db.update(TABLE_NAME,cv,"_id=?", new String[]{row_id});
+        if(result==-1){
+            Toast.makeText(context,"Failed to update@",Toast.LENGTH_SHORT).show();
+        }
+        else {
+        Toast.makeText(context,"Successfully updated!",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void deleteOneRow(String row_id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        long result =db.delete(TABLE_NAME,"_id=?",new String[]{row_id});
+        if(result==-1){
+            Toast.makeText(context,"Something went wrong!", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context,"Successfully deleted!",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    public void deleteAllData(){
+        SQLiteDatabase db=this.getWritableDatabase();
+        db.execSQL("DELETE FROM "+TABLE_NAME);
+    }
 }

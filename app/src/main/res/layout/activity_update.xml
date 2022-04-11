@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddPersonalTaskActivity">
-
+    tools:context=".UpdateActivity">
     <include
         android:id="@+id/include"
         layout="@layout/toolbar" />
 
     <EditText
-        android:id="@+id/editTextTitle"
+        android:id="@+id/editTextTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -25,7 +24,7 @@
         app:layout_constraintVertical_bias="0.155" />
 
     <EditText
-        android:id="@+id/editTextDescription"
+        android:id="@+id/editTextDescription2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -41,21 +40,23 @@
         app:layout_constraintVertical_bias="0.247" />
 
     <Button
-        android:id="@+id/addBtn"
+        android:id="@+id/updateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="272dp"
         android:background="#4CAF50"
-        android:text="Add"
+        android:text="Update"
         android:textColor="#263238"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDescription"
-        app:layout_constraintVertical_bias="0.358" />
+
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate2"
+        app:layout_constraintVertical_bias="0.448" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/editTextDate2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

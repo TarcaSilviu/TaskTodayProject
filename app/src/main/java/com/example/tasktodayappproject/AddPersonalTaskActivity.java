@@ -16,7 +16,7 @@ public class AddPersonalTaskActivity extends AppCompatActivity {
     EditText title;
     EditText description;
     EditText date;
-    EditText time;
+
     Button add_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class AddPersonalTaskActivity extends AppCompatActivity {
         title=findViewById(R.id.editTextTitle);
         description=findViewById(R.id.editTextDescription);
         date=findViewById(R.id.editTextDate);
-        time=findViewById(R.id.editTextTime);
+
         add_button=findViewById(R.id.addBtn);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override

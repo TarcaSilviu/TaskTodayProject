@@ -37,6 +37,8 @@ public class AddPersonalTaskActivity extends AppCompatActivity {
                 LocalDatabase myDb=new LocalDatabase(AddPersonalTaskActivity.this);
                 myDb.addPersonalTask(title.getText().toString().trim(),
                         description.getText().toString().trim());
+                AddPersonalTaskActivity.this.finish();
+                startActivity(new Intent(AddPersonalTaskActivity.this,PersonalTasksActivity.class));
             }
         });
     }
@@ -59,6 +61,7 @@ public class AddPersonalTaskActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(AddPersonalTaskActivity.this,PersonalTasksActivity.class));
                 AddPersonalTaskActivity.this.finish();
+
             }
         });
     }

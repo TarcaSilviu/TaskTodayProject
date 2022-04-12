@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class LocalDatabase  extends SQLiteOpenHelper {
 
     private Context context;
@@ -19,7 +22,7 @@ public class LocalDatabase  extends SQLiteOpenHelper {
     private static final String COLUMN_ID="_id";
     private static final String COLUMN_TITLE="task_title";
     private static final String COLUMN_DESCRIPTION="task_description";
-    //public static final String COLUMN_DATE="task_date";
+    public static final String COLUMN_DATE="task_date";
 
 
     public LocalDatabase(@Nullable Context context) {
@@ -30,9 +33,11 @@ public class LocalDatabase  extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query=
-                " CREATE TABLE "+TABLE_NAME+" ("+COLUMN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                " CREATE TABLE "+TABLE_NAME+" ("+COLUMN_ID+
+                        " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                        COLUMN_TITLE+" TEXT, "+
-                        COLUMN_DESCRIPTION +" TEXT); ";
+                        COLUMN_DESCRIPTION +" TEXT, "
+                        +COLUMN_DATE+"TEXT " +")";
         sqLiteDatabase.execSQL(query);
     }
 
@@ -42,12 +47,13 @@ public class LocalDatabase  extends SQLiteOpenHelper {
     onCreate(sqLiteDatabase);
     }
 //
-    public void addPersonalTask(String title,String description){
+    public void addPersonalTask(String title, String description, Date date){
+        SimpleDateFormat simple=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
         cv.put(COLUMN_TITLE,title);
         cv.put(COLUMN_DESCRIPTION,description);
-        //cv.put(COLUMN_DATE,date);
+        cv.put(COLUMN_DATE,simple.format(date));
         long result=db.insert(TABLE_NAME,null,cv);
         if(result==-1){
             Toast.makeText(context,"Failed",Toast.LENGTH_SHORT).show();

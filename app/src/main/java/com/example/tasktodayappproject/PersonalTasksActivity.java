@@ -13,6 +13,8 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,6 +29,8 @@ public class PersonalTasksActivity extends AppCompatActivity {
     private ArrayList<String> task_id,task_title,task_description;
     private RecyclerView recyclerViewTasks;
     private LocalDatabase myDb;
+    private ImageView emptyImageView;
+    private TextView emptyTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,10 @@ public class PersonalTasksActivity extends AppCompatActivity {
         task_id=new ArrayList<>();
         task_title=new ArrayList<>();
         task_description=new ArrayList<>();
+
+        emptyImageView=findViewById(R.id.emptyImageView);
+        emptyTextView=findViewById(R.id.emptyTextView);
+
 
         storeData();
         setAdapter();
@@ -71,15 +79,20 @@ public class PersonalTasksActivity extends AppCompatActivity {
 
     void storeData(){
         Cursor cursor=myDb.readAllData();
-        if(cursor.getColumnCount()==0){
-            Toast.makeText(this,"No data.",Toast.LENGTH_SHORT).show();
-        }
-        else{
+        if(cursor.getCount()==0){
+
+            emptyImageView.setVisibility(View.VISIBLE);
+            emptyTextView.setVisibility(View.VISIBLE);
+
+        } else{
+            emptyImageView.setVisibility(View.GONE);
+            emptyTextView.setVisibility(View.GONE);
             while (cursor.moveToNext()){
                 task_id.add(cursor.getString(0));
                 task_title.add(cursor.getString(1));
                 task_description.add(cursor.getString(2));
             }
+
         }
     }
 

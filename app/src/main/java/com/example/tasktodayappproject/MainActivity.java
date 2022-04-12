@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void configureLoginButton(){
-        Button nextButton=(Button) findViewById(R.id.LoginBtn);
+        Button nextButton=(Button) findViewById(R.id.offlineModeBtn);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override

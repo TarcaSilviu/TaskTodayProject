@@ -2,9 +2,18 @@ package Classes;
 
 public class CurentUser {
 
-    private String username;
-    private String user_email;
-    private boolean offlineMode;
+
+    public static String username;
+    public static String user_email;
+    public static boolean offlineMode;
+
+    private CurentUser(){}
+
+    public static void SetInstance(String Username,String user_email,boolean offlineMode){
+        CurentUser.username=username;
+        CurentUser.user_email=user_email;
+        CurentUser.offlineMode=offlineMode;
+    }
 
     public String getUsername() {
         return username;

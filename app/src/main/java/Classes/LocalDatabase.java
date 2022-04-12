@@ -84,7 +84,7 @@ public class LocalDatabase  extends SQLiteOpenHelper {
 
         long result=db.update(TABLE_NAME,cv,"_id=?", new String[]{row_id});
         if(result==-1){
-            Toast.makeText(context,"Failed to update@",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Failed to update!",Toast.LENGTH_SHORT).show();
         }
         else {
         Toast.makeText(context,"Successfully updated!",Toast.LENGTH_SHORT).show();

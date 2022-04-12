@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import Classes.CurentUser;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                CurentUser.offlineMode=true;
                 startActivity(new Intent(MainActivity.this, MenuActivity.class));
             }
         });

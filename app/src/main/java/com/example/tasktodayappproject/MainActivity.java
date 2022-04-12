@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        configureLoginButton();
+        configureOfflineModeButton();
     }
 
-    private void configureLoginButton(){
+    private void configureOfflineModeButton(){
         Button nextButton=(Button) findViewById(R.id.offlineModeBtn);
 
         nextButton.setOnClickListener(new View.OnClickListener() {

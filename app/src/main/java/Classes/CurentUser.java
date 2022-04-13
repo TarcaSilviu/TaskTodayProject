@@ -6,7 +6,7 @@ public class CurentUser {
     public static String username;
     public static String user_email;
     public static boolean offlineMode;
-
+    public static int currentActivity;
     private CurentUser(){}
 
     public static void SetInstance(String Username,String user_email,boolean offlineMode){

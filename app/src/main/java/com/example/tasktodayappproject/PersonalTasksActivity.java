@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import Classes.CurentUser;
 import Classes.LocalDatabase;
 import Classes.Task;
 
@@ -40,7 +41,8 @@ public class PersonalTasksActivity extends AppCompatActivity {
     private TextView emptyTextView;
     int year,month,day;
     private Date date;
-
+    FloatingActionButton searchButton;
+    FloatingActionButton addButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -71,7 +73,22 @@ public class PersonalTasksActivity extends AppCompatActivity {
         emptyTextView=findViewById(R.id.emptyTextView);
 
 
-        storeData();
+        searchButton=(FloatingActionButton) findViewById(R.id.floatingSearchButton);
+        addButton=(FloatingActionButton) findViewById(R.id.addPersonalTask);
+
+        if(CurentUser.currentActivity==2) {
+            storeData();
+            searchButton.setVisibility(View.VISIBLE);
+            addButton.setVisibility(View.VISIBLE);
+        }
+        else{
+            searchData();
+            searchButton.setVisibility(View.GONE);
+            addButton.setVisibility(View.GONE);
+        }
+
+
+
         setAdapter();
 
 
@@ -115,15 +132,18 @@ public class PersonalTasksActivity extends AppCompatActivity {
 
         }
     }
+    void clearData(){
+        task_id.clear();
+        task_title.clear();
+        task_description.clear();
+        task_date.clear();
+    }
 
     void searchData(){
         Cursor cursor=myDb.searchTroughData(date);
         SimpleDateFormat simpleDate=new SimpleDateFormat("yyyy-MM-dd");
 
-        task_id.clear();
-        task_title.clear();
-        task_description.clear();
-        task_date.clear();
+        clearData();
 
         if(cursor.getCount()==0){
 
@@ -170,7 +190,7 @@ public class PersonalTasksActivity extends AppCompatActivity {
     }
 
     private void configureFloatAddButton(){
-        FloatingActionButton addButton=(FloatingActionButton) findViewById(R.id.addPersonalTask);
+
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,7 +201,7 @@ public class PersonalTasksActivity extends AppCompatActivity {
         });
     }
     private void configureSearchFloatButton(){
-        FloatingActionButton searchButton=(FloatingActionButton) findViewById(R.id.floatingSearchButton);
+
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override

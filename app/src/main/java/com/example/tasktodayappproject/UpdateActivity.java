@@ -20,6 +20,7 @@ public class UpdateActivity extends AppCompatActivity {
     EditText title_input,description_input,dateTime_input;
     Button updateBtn,deleteBtn;
     String id,title,description;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

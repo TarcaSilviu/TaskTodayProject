@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import Classes.CurentUser;
+
 public class MenuActivity extends AppCompatActivity {
     ImageButton backImageButton;
     ImageButton menuImageIcon;
@@ -22,7 +24,8 @@ public class MenuActivity extends AppCompatActivity {
         backImageButton.setVisibility(View.GONE);
         menuImageIcon=(ImageButton) findViewById(R.id.MenuIcon);
         menuImageIcon.setVisibility(View.GONE);
-
+        configureTodayTasksButton();
+        configureProfileButton();
 
     }
     private void configureTasksButton(){
@@ -31,11 +34,34 @@ public class MenuActivity extends AppCompatActivity {
         tasksBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                CurentUser.currentActivity=2;
                 startActivity(new Intent(MenuActivity.this, PersonalTasksActivity.class));
             }
         });
     }
 
+    private void configureTodayTasksButton(){
+        Button today=(Button) findViewById(R.id.todayTasksBtn);
+
+        today.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CurentUser.currentActivity=3;
+                startActivity(new Intent(MenuActivity.this, PersonalTasksActivity.class));
+            }
+        });
+    }
+    private void configureProfileButton(){
+        Button profileBtn=(Button) findViewById(R.id.profileOptionBtn);
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CurentUser.currentActivity=4;
+                startActivity(new Intent(MenuActivity.this, UserProfile.class));
+            }
+        });
+    }
 
 
 }
